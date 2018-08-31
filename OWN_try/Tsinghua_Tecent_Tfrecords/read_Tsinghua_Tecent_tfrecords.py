@@ -1,13 +1,11 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
 import os
 import json
 import tensorflow as tf
+import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 import cv2
+
 slim = tf.contrib.slim
 
 data_splits_num = {
@@ -22,6 +20,7 @@ for i,name in enumerate(CLASSES):
     classes[name]=(i+1,name)
 classes['None']=(0,'Background')
 ids=os.path.join(dataset_dir,'ids.txt')
+
 
 def slim_get_batch(num_classes, batch_size, split_name, file_pattern, num_readers, num_epochs=None, is_training=True):
     """获取一个数据集元组，其中包含有关读取P数据集的说明。
@@ -49,14 +48,12 @@ def slim_get_batch(num_classes, batch_size, split_name, file_pattern, num_reader
         'image/format': tf.FixedLenFeature((), tf.string, default_value='jpeg'),
         'image/height': tf.FixedLenFeature([1], tf.int64),
         'image/width': tf.FixedLenFeature([1], tf.int64),
-        'image/channels': tf.FixedLenFeature([1], tf.int64),
         'image/shape': tf.FixedLenFeature([3], tf.int64),
         'image/object/bbox/xmin': tf.VarLenFeature(dtype=tf.float32),
         'image/object/bbox/ymin': tf.VarLenFeature(dtype=tf.float32),
         'image/object/bbox/xmax': tf.VarLenFeature(dtype=tf.float32),
         'image/object/bbox/ymax': tf.VarLenFeature(dtype=tf.float32),
         'image/object/bbox/label': tf.VarLenFeature(dtype=tf.int64),
-        'image/object/bbox/label_text': tf.VarLenFeature(dtype=tf.int64),
     }
     items_to_handlers = {
         'image': slim.tfexample_decoder.Image('image/encoded', 'image/format'),
@@ -69,8 +66,8 @@ def slim_get_batch(num_classes, batch_size, split_name, file_pattern, num_reader
 
     labels_to_names = {}
     for name, pair in classes.items():
-        labels_to_names[name] = name
-
+        labels_to_names[pair[0]] = name
+    # print('label_names',labels_to_names)
     dataset = slim.dataset.Dataset(
         data_sources=file_pattern,
         reader=tf.TFRecordReader,
@@ -89,9 +86,9 @@ def slim_get_batch(num_classes, batch_size, split_name, file_pattern, num_reader
             shuffle=is_training,
             num_epochs=num_epochs)
 
-    # [image, shape, glabels_raw, gbboxes_raw] = provider.get(['image','shape',
-    #                                                                    'object/label',
-    #                                                                    'object/bbox'])
+    # [image, shape, glabels_raw, gbboxes_raw] = provider.get(['image', 'shape',
+    #                                                                    'object/label','object/bbox'])
+
 
     with tf.Session() as sess:
         sess.run([tf.local_variables_initializer(), tf.global_variables_initializer()])
@@ -99,17 +96,29 @@ def slim_get_batch(num_classes, batch_size, split_name, file_pattern, num_reader
         for i in range(provider._num_samples):
             [image, labelList, boxList, shape] = provider.get(
                 ['image', 'object/label', 'object/bbox', 'shape'])
-            # image = tf.image.decode_jpeg(image)
-            image = tf.decode_raw(image, tf.int64)
-            image, labels, boxes, shape = sess.run([image, labelList, boxList, shape])
-            print(labelList)
-            # print('{}is ,{} has shape :{}'.format(image, filename.decode('utf-8'), shape))
-            # print('{}is ,{} has shape :{}'.format(image, filename.decode('utf-8'), shape))
-            for j in range(labels.shape[0]):
-                print('label=%d (%s): locations in %.6f, %.6f, %.6f, %.6f' % (
-                labels[j], labels_to_names[labels[j]], boxes[j][0], boxes[j][1], boxes[j][2], boxes[j][3]))
+            img, labels, boxes, shape = sess.run([image, labelList, boxList, shape])
+            print(labels)
+
+            # img=cv2.cvtColor(img, cv2.COLOR_BGR2RGB)#不转换反而是RGB显示
+            # print('{}is ,has shape :{}'.format(img, shape))
+            # img=cv2.imread(img)
+            # img = img / 255.0#归一化以后会化成黑色
+            for j in range(len(labels)):
+                print('value:', ( boxes[j][0], boxes[j][1]), ( boxes[j][2], boxes[j][3]))
+                cv2.rectangle(img, (int(boxes[j][0] * shape[0]), int(boxes[j][1] * shape[1])),
+                              (int(boxes[j][2] * shape[0]), int(boxes[j][3] * shape[1])), (0, 255, 0), 3)
+            plt.imshow(img)
+            plt.show()
+
+
+
+            cv2.imwrite("./rec.jpg", img, [int(cv2.IMWRITE_JPEG_QUALITY), 100])
+            # cv2.waitKey(0)
+            # cv2.destroyAllWindows()
+            # plt.show()
+
             break
-    return image, labels, boxes, shape
+
 
 def count_split_examples(split_path, file_prefix='.tfrecord'):
     # Count the total number of examples in all of these shard
@@ -121,59 +130,9 @@ def count_split_examples(split_path, file_prefix='.tfrecord'):
             num_samples += 1
     return num_samples
 
-
-
 def main():
-    datadir_tfrecords=os.path.join(dataset_dir ,os.path.pardir,'dealTsinghua_Tecent/Tsinghua_Tecent_000.tfrecord')
-    print(tf.gfile.Exists(datadir_tfrecords))
-
-    filename_queue = tf.train.string_input_producer([datadir_tfrecords])
-
-    reader = tf.TFRecordReader()
-    _, serialized_example = reader.read(filename_queue)  # 返回文件名和文件
-    features = tf.parse_single_example(serialized_example,
-                                       features={
-                                           'image/shape': tf.FixedLenFeature([], tf.int64),
-                                           'image/encoded': tf.FixedLenFeature([], tf.string),
-                                       })
-
-    # img = tf.decode_raw(features['image/encoded'], tf.uint8)
-    # img = tf.reshape(img, [224, 224, 3])
-    # img = tf.cast(img, tf.float32) * (1. / 255) - 0.5
-    shape = features[ 'image/shape']
-    print(shape)
-    img_batch, label_batch = tf.train.shuffle_batch([ shape],
-                                                    batch_size=4, capacity=2000,
-                                                    min_after_dequeue=1000)
-    init = tf.initialize_all_variables()
-    with tf.Session() as sess:
-        sess.run(init)
-        threads = tf.train.start_queue_runners(sess=sess)
-        for i in range(3):
-            val, l = sess.run([img_batch, label_batch])
-            # 我们也可以根据需要对val， l进行处理
-            # l = to_categorical(l, 12)
-            print(val.shape, l)
-
-    # image, labels, boxes, shape=slim_get_batch(223,4,'train',datadir_tfrecords,100,4,)
-    # for serialized_example in tf.python_io.tf_record_iterator(datadir_tfrecords):
-    #     example = tf.train.Example()
-    #     example.ParseFromString(serialized_example)
-    #
-    #     shape = example.features.feature['image/shape'].int64_list.value
-    #     image = example.features.feature['image/encoded'].bytes_list.value
-    #     image = tf.decode_raw(image, tf.uint8)
-    #     label = example.features.feature['image/object/bbox/label'].int64_list.value
-    #     # 可以做一些预处理之类的
-    #     print(shape, image,label)
+    slim_get_batch(223, 1, 'train',os.path.join(dataset_dir, os.path.pardir, 'dealTsinghua_Tecent/Tsinghua_Tecent_000.tfrecord'), 100, 4, )
 
 
 if __name__ == '__main__':
-    import numpy as np
-    img_raw = np.random.randint(0, 255, size=(56, 56))
-    print(img_raw)
-    img_raw = img_raw.tostring()
-    # print(img_raw)
-    img_raw = tf.gfile.FastGFile(os.path.join(os.path.curdir,os.path.pardir,os.path.pardir,'/dataset/data/train/36.jpg'), 'rb').read()
-    # print(img_raw)
-     # main()
+    main()
