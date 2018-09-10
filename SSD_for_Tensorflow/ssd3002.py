@@ -17,7 +17,7 @@ class SSD300:
         self.img_size = [300, 300]
         # 分类总数量
         self.classes_size = 223
-        self.lr = 0.01
+        self.lr=0.01
         # 背景分类的值
         self.background_classes_val = 0
         # 每个特征图单元的default box数量
@@ -158,19 +158,30 @@ class SSD300:
         print('##   all default boxs : ' + str(self.all_default_boxs_len))
 
         # 输入真实数据
-        self.groundtruth_class = tf.placeholder(shape=[None,self.all_default_boxs_len], dtype=tf.int32,name='groundtruth_class')
+        self.groundtruth_class = tf.placeholder(shape=[None, self.classes_size], dtype=tf.int32,name='groundtruth_class')
+
+        # self.groundtruth_class = tf.placeholder(shape=[None,self.all_default_boxs_len], dtype=tf.int32,name='groundtruth_class')
         self.groundtruth_location = tf.placeholder(shape=[None,self.all_default_boxs_len,4], dtype=tf.float32,name='groundtruth_location')
+        # self.groundtruth_positives = tf.placeholder(shape=[None, self.classes_size], dtype=tf.float32,
+        #                                             name='groundtruth_positives')
+        # self.groundtruth_negatives = tf.placeholder(shape=[None, self.classes_size], dtype=tf.float32,
+        #                                             name='groundtruth_negatives')
         self.groundtruth_positives = tf.placeholder(shape=[None,self.all_default_boxs_len], dtype=tf.float32,name='groundtruth_positives')
         self.groundtruth_negatives = tf.placeholder(shape=[None,self.all_default_boxs_len], dtype=tf.float32,name='groundtruth_negatives')
 
         # 损失函数
         self.groundtruth_count = tf.add(self.groundtruth_positives , self.groundtruth_negatives)
-        self.softmax_cross_entropy = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=self.feature_class, labels=self.groundtruth_class)
+        self.softmax_cross_entropy = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=self.feature_class, labels=self.groundtruth_class)#Tensor("strided_slice:0", shape=(?, 8732, 223), dtype=float32) #Tensor("groundtruth_class:0", shape=(?, 223), dtype=int32)
         self.loss_location = tf.div(tf.reduce_sum(tf.multiply(tf.reduce_sum(self.smooth_L1(tf.subtract(self.groundtruth_location , self.feature_location)), reduction_indices=2) , self.groundtruth_positives), reduction_indices=1) , tf.reduce_sum(self.groundtruth_positives, reduction_indices = 1))
         self.loss_class = tf.div(tf.reduce_sum(tf.multiply(self.softmax_cross_entropy , self.groundtruth_count), reduction_indices=1) , tf.reduce_sum(self.groundtruth_count, reduction_indices = 1))
+        #Tensor("SparseSoftmaxCrossEntropyWithLogits/Reshape_2:0", shape=(?, 223), dtype=float32)  #groundtruth_count=Tensor("Add:0", shape=(?, 8732), dtype=float32)
         self.loss_all = tf.reduce_sum(tf.add(self.loss_class , self.loss_location))
- 
-        # loss优化函数
+
+        #类别的准确率
+        self.correct_prediction = tf.equal(tf.argmax(self.groundtruth_class, 1), tf.argmax(self.feature_class, 1))  # argmax返回一维张量中最大的值所在的位置
+        # 求准确率
+        self.accuracy = tf.reduce_mean(tf.cast(self.correct_prediction, tf.float32))
+        # loss优化函数  ------设置成动态学习率
         self.optimizer = tf.train.AdamOptimizer(self.lr)
         #self.optimizer = tf.train.GradientDescentOptimizer(0.001)
         self.train = self.optimizer.minimize(self.loss_all)
@@ -181,11 +192,7 @@ class SSD300:
     def run(self, input_images, actual_data,running_count):
         # 训练部分
         if self.isTraining :
-            self.lr = self.lr * (0.95 ** running_count)
-            # self.lr= tf.train.exponential_decay(0.01,
-            #                                     running_count,
-            #                                decay_steps=4,
-            #                                decay_rate=0.003)
+            self.lr=self.lr, 0.01 * (0.95 ** running_count)
             if actual_data is None :
                 raise Exception('actual_data参数不存在!')
             if len(input_images) != len(actual_data):
@@ -198,7 +205,7 @@ class SSD300:
                 f_class = self.check_numerics(f_class,'预测集f_class')
                 f_location = self.check_numerics(f_location,'预测集f_location')
                 
-                gt_class,gt_location,gt_positives,gt_negatives = self.generate_groundtruth_data(actual_data, f_class) 
+                gt_class,gt_location,gt_positives,gt_negatives = self.generate_groundtruth_data(actual_data, f_class)
                 #print('gt_positives :【'+str(np.sum(gt_positives))+'|'+str(np.amax(gt_positives))+'|'+str(np.amin(gt_positives))+'】|gt_negatives : 【'+str(np.sum(gt_negatives))+'|'+str(np.amax(gt_negatives))+'|'+str(np.amin(gt_negatives))+'】')
                 self.sess.run(self.train, feed_dict={
                     self.input : input_images, 
@@ -208,7 +215,7 @@ class SSD300:
                     self.groundtruth_negatives : gt_negatives
                 })
                 with tf.control_dependencies([self.train]):
-                    loss_all,loss_location,loss_class = self.sess.run([self.loss_all,self.loss_location,self.loss_class], feed_dict={
+                    loss_all,loss_location,loss_class,accuracy = self.sess.run([self.loss_all,self.loss_location,self.loss_class,self.accuracy], feed_dict={
                         self.input : input_images,
                         self.groundtruth_class : gt_class,
                         self.groundtruth_location : gt_location,
@@ -336,15 +343,15 @@ class SSD300:
         return all_default_boxes
 
     # 整理生成groundtruth数据
-    def generate_groundtruth_data(self,input_actual_data, f_class):
+    def generate_groundtruth_data(self, input_actual_data, f_class):
         # 生成空数组，用于保存groundtruth
         input_actual_data_len = len(input_actual_data)
-        gt_class = np.zeros((input_actual_data_len, self.all_default_boxs_len)) 
+        gt_class = np.zeros((input_actual_data_len, self.all_default_boxs_len))
         gt_location = np.zeros((input_actual_data_len, self.all_default_boxs_len, 4))
         gt_positives_jacc = np.zeros((input_actual_data_len, self.all_default_boxs_len))
         gt_positives = np.zeros((input_actual_data_len, self.all_default_boxs_len))
         gt_negatives = np.zeros((input_actual_data_len, self.all_default_boxs_len))
-        background_jacc = max(0, (self.jaccard_value-0.2))
+        background_jacc = max(0, (self.jaccard_value - 0.2))
         # 初始化正例训练数据
         for img_index in range(input_actual_data_len):
             for pre_actual in input_actual_data[img_index]:
@@ -353,32 +360,75 @@ class SSD300:
                 for boxe_index in range(self.all_default_boxs_len):
                     jacc = self.jaccard(gt_box_val, self.all_default_boxs[boxe_index])
                     if jacc > self.jaccard_value or jacc == self.jaccard_value:
-                        gt_class[img_index][boxe_index] = gt_class_val
+                        gt_class[img_index][boxe_index] = gt_class_val#241 109报错
                         gt_location[img_index][boxe_index] = gt_box_val
                         gt_positives_jacc[img_index][boxe_index] = jacc
                         gt_positives[img_index][boxe_index] = 1
                         gt_negatives[img_index][boxe_index] = 0
             # 如果没有正例，则随机创建一个正例，预防nan
-            if np.sum(gt_positives[img_index])==0 :
-                #print('【没有匹配jacc】:'+str(input_actual_data[img_index]))
-                random_pos_index = np.random.randint(low=0, high=self.all_default_boxs_len, size=1)[0]
+            if np.sum(gt_positives[img_index]) == 0:
+                # print('【没有匹配jacc】:'+str(input_actual_data[img_index]))
+                random_pos_index = np.random.randint(low=0, high=int(self.classes_size), size=1)[0]
                 gt_class[img_index][random_pos_index] = self.background_classes_val
-                gt_location[img_index][random_pos_index] = [0,0,0,0]
+                gt_location[img_index][random_pos_index] = [0, 0, 0, 0]
                 gt_positives_jacc[img_index][random_pos_index] = self.jaccard_value
                 gt_positives[img_index][random_pos_index] = 1
                 gt_negatives[img_index][random_pos_index] = 0
             # 正负例比值 1:3
             gt_neg_end_count = int(np.sum(gt_positives[img_index]) * 3)
-            if (gt_neg_end_count+np.sum(gt_positives[img_index])) > self.all_default_boxs_len :
-                gt_neg_end_count = self.all_default_boxs_len - np.sum(gt_positives[img_index])
+            if (gt_neg_end_count + np.sum(gt_positives[img_index])) > self.classes_size:
+                gt_neg_end_count = self.classes_size - np.sum(gt_positives[img_index])
             # 随机选择负例
-            gt_neg_index = np.random.randint(low=0, high=self.all_default_boxs_len, size=gt_neg_end_count)
+            gt_neg_index = np.random.randint(low=0, high=int(self.classes_size), size=gt_neg_end_count)
             for r_index in gt_neg_index:
-                if gt_positives_jacc[img_index][r_index] < background_jacc : 
+                if gt_positives_jacc[img_index][r_index] < background_jacc:
                     gt_class[img_index][r_index] = self.background_classes_val
                     gt_positives[img_index][r_index] = 0
                     gt_negatives[img_index][r_index] = 1
         return gt_class, gt_location, gt_positives, gt_negatives
+    # def generate_groundtruth_data(self,input_actual_data, f_class):
+    #     # 生成空数组，用于保存groundtruth
+    #     input_actual_data_len = len(input_actual_data)
+    #     gt_class = np.zeros((input_actual_data_len, self.all_default_boxs_len))
+    #     gt_location = np.zeros((input_actual_data_len, self.all_default_boxs_len, 4))
+    #     gt_positives_jacc = np.zeros((input_actual_data_len, self.all_default_boxs_len))
+    #     gt_positives = np.zeros((input_actual_data_len, self.all_default_boxs_len))
+    #     gt_negatives = np.zeros((input_actual_data_len, self.all_default_boxs_len))
+    #     background_jacc = max(0, (self.jaccard_value-0.2))
+    #     # 初始化正例训练数据
+    #     for img_index in range(input_actual_data_len):
+    #         for pre_actual in input_actual_data[img_index]:
+    #             gt_class_val = pre_actual[-1:][0]
+    #             gt_box_val = pre_actual[:-1]
+    #             for boxe_index in range(self.all_default_boxs_len):
+    #                 jacc = self.jaccard(gt_box_val, self.all_default_boxs[boxe_index])
+    #                 if jacc > self.jaccard_value or jacc == self.jaccard_value:
+    #                     gt_class[img_index][boxe_index] = gt_class_val
+    #                     gt_location[img_index][boxe_index] = gt_box_val
+    #                     gt_positives_jacc[img_index][boxe_index] = jacc
+    #                     gt_positives[img_index][boxe_index] = 1
+    #                     gt_negatives[img_index][boxe_index] = 0
+    #         # 如果没有正例，则随机创建一个正例，预防nan
+    #         if np.sum(gt_positives[img_index])==0 :
+    #             #print('【没有匹配jacc】:'+str(input_actual_data[img_index]))
+    #             random_pos_index = np.random.randint(low=0, high=self.all_default_boxs_len, size=1)[0]
+    #             gt_class[img_index][random_pos_index] = self.background_classes_val
+    #             gt_location[img_index][random_pos_index] = [0,0,0,0]
+    #             gt_positives_jacc[img_index][random_pos_index] = self.jaccard_value
+    #             gt_positives[img_index][random_pos_index] = 1
+    #             gt_negatives[img_index][random_pos_index] = 0
+    #         # 正负例比值 1:3
+    #         gt_neg_end_count = int(np.sum(gt_positives[img_index]) * 3)
+    #         if (gt_neg_end_count+np.sum(gt_positives[img_index])) > self.all_default_boxs_len :
+    #             gt_neg_end_count = self.all_default_boxs_len - np.sum(gt_positives[img_index])
+    #         # 随机选择负例
+    #         gt_neg_index = np.random.randint(low=0, high=self.all_default_boxs_len, size=gt_neg_end_count)
+    #         for r_index in gt_neg_index:
+    #             if gt_positives_jacc[img_index][r_index] < background_jacc :
+    #                 gt_class[img_index][r_index] = self.background_classes_val
+    #                 gt_positives[img_index][r_index] = 0
+    #                 gt_negatives[img_index][r_index] = 1
+    #     return gt_class, gt_location, gt_positives, gt_negatives
 
     # jaccard算法
     # 计算IOU，rect1、rect2格式为[center_x,center_y,width,height]           

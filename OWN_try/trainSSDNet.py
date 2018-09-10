@@ -198,45 +198,45 @@ def main(_):
                 ssd_net.bboxes_encode(glabels, gbboxes, ssd_anchors)
             batch_shape = [1] + [len(ssd_anchors)] * 3
     #
-    #         # Training batches and queue.
-    #         r = tf.train.batch(
-    #             tf_utils.reshape_list([image, gclasses, glocalisations, gscores]),
-    #             batch_size=FLAGS.batch_size,
-    #             num_threads=FLAGS.num_preprocessing_threads,
-    #             capacity=5 * FLAGS.batch_size)
-    #         b_image, b_gclasses, b_glocalisations, b_gscores = \
-    #             tf_utils.reshape_list(r, batch_shape)
-    #
-    #         # Intermediate queueing: unique batch computation pipeline for all
-    #         # GPUs running the training.
-    #         batch_queue = slim.prefetch_queue.prefetch_queue(
-    #             tf_utils.reshape_list([b_image, b_gclasses, b_glocalisations, b_gscores]),
-    #             capacity=2 * deploy_config.num_clones)
+            # Training batches and queue.
+            r = tf.train.batch(
+                tf_utils.reshape_list([image, gclasses, glocalisations, gscores]),
+                batch_size=FLAGS.batch_size,
+                num_threads=FLAGS.num_preprocessing_threads,
+                capacity=5 * FLAGS.batch_size)
+            b_image, b_gclasses, b_glocalisations, b_gscores = \
+                tf_utils.reshape_list(r, batch_shape)
+
+            # Intermediate queueing: unique batch computation pipeline for all
+            # GPUs running the training.
+            batch_queue = slim.prefetch_queue.prefetch_queue(
+                tf_utils.reshape_list([b_image, b_gclasses, b_glocalisations, b_gscores]),
+                capacity=2 * deploy_config.num_clones)
     #
     #     # =================================================================== #
     #     # Define the model running on every GPU.
     #     # =================================================================== #
-    #     def clone_fn(batch_queue):
-    #         """Allows data parallelism by creating multiple
-    #         clones of network_fn."""
-    #         # Dequeue batch.
-    #         b_image, b_gclasses, b_glocalisations, b_gscores = \
-    #             tf_utils.reshape_list(batch_queue.dequeue(), batch_shape)
-    #
-    #         # Construct SSD network.
-    #         arg_scope = ssd_net.arg_scope(weight_decay=FLAGS.weight_decay,
-    #                                       data_format=DATA_FORMAT)
-    #         with slim.arg_scope(arg_scope):
-    #             predictions, localisations, logits, end_points = \
-    #                 ssd_net.net(b_image, is_training=True)
+        def clone_fn(batch_queue):
+            """Allows data parallelism by creating multiple
+            clones of network_fn."""
+            # Dequeue batch.
+            b_image, b_gclasses, b_glocalisations, b_gscores = \
+                tf_utils.reshape_list(batch_queue.dequeue(), batch_shape)
+
+            # Construct SSD network.
+            arg_scope = ssd_net.arg_scope(weight_decay=FLAGS.weight_decay,
+                                          data_format=DATA_FORMAT)
+            with slim.arg_scope(arg_scope):
+                predictions, localisations, logits, end_points = \
+                    ssd_net.net(b_image, is_training=True)
     #         # Add loss function.
-    #         ssd_net.losses(logits, localisations,
-    #                        b_gclasses, b_glocalisations, b_gscores,
-    #                        match_threshold=FLAGS.match_threshold,
-    #                        negative_ratio=FLAGS.negative_ratio,
-    #                        alpha=FLAGS.loss_alpha,
-    #                        label_smoothing=FLAGS.label_smoothing)
-    #         return end_points
+            ssd_net.losses(logits, localisations,
+                           b_gclasses, b_glocalisations, b_gscores,
+                           match_threshold=FLAGS.match_threshold,
+                           negative_ratio=FLAGS.negative_ratio,
+                           alpha=FLAGS.loss_alpha,
+                           label_smoothing=FLAGS.label_smoothing)
+            return end_points
     #
     #     # Gather initial summaries.
     #     summaries = set(tf.get_collection(tf.GraphKeys.SUMMARIES))

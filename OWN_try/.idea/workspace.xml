@@ -24,14 +24,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="trainSSDNet.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="trainSSDNet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trainSSDNet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6">
-              <caret line="164" column="39" lean-forward="true" selection-start-line="164" selection-start-column="39" selection-end-line="164" selection-end-column="39" />
+            <state relative-caret-position="213">
+              <caret line="170" column="65" selection-start-line="170" selection-start-column="65" selection-end-line="170" selection-end-column="65" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ssd_vgg_512.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nets/ssd_vgg_512.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="381">
+              <caret line="156" column="62" selection-start-line="156" selection-start-column="50" selection-end-line="156" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -79,10 +88,23 @@
       <file leaf-file-name="preprocessing_factory.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/preprocessing/preprocessing_factory.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="474">
-              <caret line="59" column="27" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
+            <state relative-caret-position="370">
+              <caret line="47" column="34" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="44" />
               <folding>
+                <element signature="e#740#778#0" expanded="true" />
                 <element signature="e#1151#1636#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ssd_vgg_preprocessing.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/preprocessing/ssd_vgg_preprocessing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="49" selection-start-line="48" selection-start-column="27" selection-end-line="49" />
+              <folding>
+                <element signature="e#731#761#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -124,8 +146,11 @@
       <find>model_deploy</find>
       <find>v</find>
       <find>dataset_name</find>
-      <find>model_name</find>
       <find>SSDN</find>
+      <find>learning</find>
+      <find>model_name</find>
+      <find>tf_extended</find>
+      <find>preprocessing_name</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -150,6 +175,7 @@
         <option value="$PROJECT_DIR$/SSD-Tensorflow/tf_convert_data.py" />
         <option value="$PROJECT_DIR$/voc_Tfrecords/voc_tfrecords.py" />
         <option value="$PROJECT_DIR$/trainSSDNet.py" />
+        <option value="$PROJECT_DIR$/preprocessing/ssd_vgg_preprocessing.py" />
       </list>
     </option>
   </component>
@@ -162,7 +188,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-99" />
     <option name="y" value="-8" />
     <option name="width" value="1163" />
@@ -185,7 +211,7 @@
             <path>
               <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
               <item name="OWN_try" type="462c0819:PsiDirectoryNode" />
-              <item name="nets" type="462c0819:PsiDirectoryNode" />
+              <item name="preprocessing" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -376,7 +402,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="5" />
@@ -384,7 +410,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="bottom" x="0" y="305" width="1600" height="249" id="Run" order="2" sideWeight="0.49956408" visible="true" weight="0.05771812" />
+      <window_info anchor="bottom" x="0" y="305" width="1600" height="249" id="Run" order="2" sideWeight="0.49956408" visible="true" weight="0.13020134" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.16796875" />
       <window_info anchor="right" id="Remote Host" order="3" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49921754" visible="true" weight="0.18701799" />
@@ -471,11 +497,6 @@
           <line>90</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/trainSSDNet.py</url>
-          <line>163</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -488,30 +509,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/voc_Tfrecords/voc_common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/voc_Tfrecords/dataset_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/voc_Tfrecords/voc_tfrecords.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/voc_Tfrecords/voc_to_tfrecords.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2825">
@@ -817,16 +814,6 @@
     <entry file="file://$PROJECT_DIR$/preprocessing/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessing/preprocessing_factory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="59" column="27" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
-          <folding>
-            <element signature="e#1151#1636#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tf_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1649">
@@ -859,12 +846,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/nets/ssd_vgg_512.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="156" column="62" selection-start-line="156" selection-start-column="50" selection-end-line="156" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/trainSSDNet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
-          <caret line="164" column="39" lean-forward="true" selection-start-line="164" selection-start-column="39" selection-end-line="164" selection-end-column="39" />
+        <state relative-caret-position="213">
+          <caret line="170" column="65" selection-start-line="170" selection-start-column="65" selection-end-line="170" selection-end-column="65" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocessing/preprocessing_factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="47" column="34" selection-start-line="47" selection-start-column="23" selection-end-line="47" selection-end-column="44" />
+          <folding>
+            <element signature="e#740#778#0" expanded="true" />
+            <element signature="e#1151#1636#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tf_extended/math.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="14" column="42" lean-forward="true" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocessing/ssd_vgg_preprocessing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="49" selection-start-line="48" selection-start-column="27" selection-end-line="49" />
+          <folding>
+            <element signature="e#731#761#0" expanded="true" />
           </folding>
         </state>
       </provider>

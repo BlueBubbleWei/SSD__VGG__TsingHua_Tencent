@@ -23,7 +23,7 @@ SSD检测
 def testing():
     gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.5)
     with tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)) as sess:
-        ssd_model = ssd300.SSD300(sess,False)
+        ssd_model = ssd300.SSD300(sess, False)
         sess.run(tf.global_variables_initializer())
         saver = tf.train.Saver(var_list=tf.trainable_variables())
         if os.path.exists('./session_params/session.ckpt.index') :
@@ -52,7 +52,7 @@ def training():
 
     gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.5)
     with tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)) as sess:
-        ssd_model = ssd300.SSD300(sess,True)
+        ssd_model = ssd300.SSD300(sess, True)
         sess.run(tf.global_variables_initializer())
         saver = tf.train.Saver(var_list=tf.trainable_variables())
         if os.path.exists('./session_params/session.ckpt.index') :
@@ -68,7 +68,10 @@ def training():
 
             train_data, actual_data,_ = get_traindata_voc2007(batch_size)
             if len(train_data) > 0:
-                loss_all,loss_class,loss_location,pred_class,pred_location = ssd_model.run(train_data, actual_data)
+                loss_all,loss_class,loss_location,pred_class,pred_location = ssd_model.run(train_data, actual_data,running_count)
+                # print(pred_class.shape,pred_location.shape)
+                # print(pred_class)
+                # print(pred_location)
                 l = np.sum(loss_location)
                 c = np.sum(loss_class)
                 if min_loss_location > l:

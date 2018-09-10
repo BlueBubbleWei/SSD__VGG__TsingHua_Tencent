@@ -21,7 +21,7 @@ SSD检测
 def testing():
     gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.9)
     with tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)) as sess:
-        ssd_model = ssd300.SSD300(sess,False)
+        ssd_model = ssd300.SSD300(sess, False)
         sess.run(tf.global_variables_initializer())
         saver = tf.train.Saver(var_list=tf.trainable_variables())
         if os.path.exists('./session_params/session.ckpt.index') :
@@ -51,7 +51,7 @@ def training():
     
     gpu_options = tf.GPUOptions(per_process_gpu_memory_fraction=0.9)
     with tf.Session(config=tf.ConfigProto(gpu_options=gpu_options)) as sess:
-        ssd_model = ssd300.SSD300(sess,True)
+        ssd_model = ssd300.SSD300(sess, True)
         sess.run(tf.global_variables_initializer())
         saver = tf.train.Saver(var_list=tf.trainable_variables())
         if os.path.exists('./session_params/session.ckpt.index') :
@@ -67,7 +67,7 @@ def training():
             
             train_data, actual_data,_ = get_traindata_voc2007(batch_size)
             if len(train_data) > 0:
-                loss_all,loss_class,loss_location,pred_class,pred_location = ssd_model.run(train_data, actual_data)
+                loss_all,loss_class,loss_location,pred_class,pred_location = ssd_model.run(train_data, actual_data,running_count)
                 l = np.sum(loss_location)
                 c = np.sum(loss_class)
                 if min_loss_location > l:
@@ -111,7 +111,7 @@ ids=os.path.join(dataset_dir,'ids.txt')
 file_name_list = glob.glob(dataset_dir+'train/*.jpg')
 lable_arr=[ name[1] for name in classes.values()]
 # 图像白化，格式:[R,G,B]
-whitened_RGB_mean = [123.68/255, 116.78/255, 103.94/255]
+# whitened_RGB_mean = [123.68/255, 116.78/255, 103.94/255]
 def get_traindata_voc2007(batch_size):
     def splitImg(imgpath):
         image = skimage.io.imread(img_path)
@@ -120,7 +120,7 @@ def get_traindata_voc2007(batch_size):
         img_list = []
         for img in split_list:
             img = skimage.transform.resize(img, (300, 300))
-            img = img - whitened_RGB_mean
+            # img = img - whitened_RGB_mean
             img_list.append(img)
         return img_list
 
