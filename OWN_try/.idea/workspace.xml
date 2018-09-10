@@ -11,8 +11,9 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/OWN_try$read_Tsinghua_Tecent_tfrecords.coverage" NAME="read_Tsinghua_Tecent_tfrecords Coverage Results" MODIFIED="1536107530554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords" />
-    <SUITE FILE_PATH="coverage/OWN_try$mytest.coverage" NAME="mytest Coverage Results" MODIFIED="1536114330925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/OWN_try$voc_tfrecords.coverage" NAME="voc_tfrecords Coverage Results" MODIFIED="1535628520003" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/voc_Tfrecords" />
+    <SUITE FILE_PATH="coverage/OWN_try$mytest.coverage" NAME="mytest Coverage Results" MODIFIED="1536493029777" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OWN_try$voc_tfrecords.coverage" NAME="voc_tfrecords Coverage Results" MODIFIED="1536544185685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/voc_Tfrecords" />
+    <SUITE FILE_PATH="coverage/OWN_try$trainSSDNet.coverage" NAME="trainSSDNet Coverage Results" MODIFIED="1536544377162" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OWN_try$test.coverage" NAME="test Coverage Results" MODIFIED="1535699031506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords" />
     <SUITE FILE_PATH="coverage/OWN_try$tsinghua_tecent_to_tfrecord.coverage" NAME="tsinghua_tecent_to_tfrecord Coverage Results" MODIFIED="1535628471225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords" />
     <SUITE FILE_PATH="coverage/OWN_try$voc_to_tfrecords.coverage" NAME="voc_to_tfrecords Coverage Results" MODIFIED="1535544169659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/voc_Tfrecords" />
@@ -23,25 +24,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ssd_net.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ssd_net/ssd_net.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="mytest.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/mytest.py">
+      <file leaf-file-name="trainSSDNet.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trainSSDNet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="181">
+              <caret line="159" column="56" selection-start-line="159" selection-start-column="38" selection-end-line="159" selection-end-column="56" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="control_flow_ops.py" pinned="false" current-in-tab="false">
-        <entry file="file://D:/python3/Lib/site-packages/tensorflow/python/ops/control_flow_ops.py">
+      <file leaf-file-name="nets_factory.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nets/nets_factory.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="142">
-              <caret line="2933" selection-start-line="2933" selection-end-line="2933" />
+            <state relative-caret-position="579">
+              <caret line="50" column="42" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ssd_vgg_300.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/nets/ssd_vgg_300.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="181">
+              <caret line="68" column="50" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tf_utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tf_utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1649">
+              <caret line="253" selection-start-line="253" selection-end-line="253" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="preprocessing_factory.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/preprocessing/preprocessing_factory.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="474">
+              <caret line="59" column="27" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
+              <folding>
+                <element signature="e#1151#1636#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dataset_factory.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/datasets/dataset_factory.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="314">
+              <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -68,6 +106,13 @@
       <find>parse_single_example</find>
       <find>file_pattern</find>
       <find>dataset_data_provider</find>
+      <find>dataset_dir</find>
+      <find>DeploymentConfig</find>
+      <find>model_deploy</find>
+      <find>v</find>
+      <find>dataset_name</find>
+      <find>model_name</find>
+      <find>SSDN</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -78,7 +123,6 @@
         <option value="$PROJECT_DIR$/voc_Tfrecords/voc_common.py" />
         <option value="$PROJECT_DIR$/voc_Tfrecords/dataset_utils.py" />
         <option value="$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords/init.py" />
-        <option value="$PROJECT_DIR$/voc_Tfrecords/voc_tfrecords.py" />
         <option value="$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords/tsinghua_tecent_tfrecords.py" />
         <option value="$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords/anno_func.py" />
         <option value="$PROJECT_DIR$/voc_Tfrecords/voc_to_tfrecords.py" />
@@ -89,6 +133,10 @@
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/test_val.py" />
         <option value="$PROJECT_DIR$/mytest.py" />
+        <option value="$PROJECT_DIR$/model_deploy.py" />
+        <option value="$PROJECT_DIR$/SSD-Tensorflow/tf_convert_data.py" />
+        <option value="$PROJECT_DIR$/voc_Tfrecords/voc_tfrecords.py" />
+        <option value="$PROJECT_DIR$/trainSSDNet.py" />
       </list>
     </option>
   </component>
@@ -101,9 +149,9 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="413" />
-    <option name="y" value="147" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-99" />
+    <option name="y" value="-8" />
     <option name="width" value="1163" />
     <option name="height" value="613" />
   </component>
@@ -113,6 +161,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -123,177 +172,17 @@
             <path>
               <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
               <item name="OWN_try" type="462c0819:PsiDirectoryNode" />
-              <item name="ssd_net" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="google" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="google" type="462c0819:PsiDirectoryNode" />
-              <item name="protobuf" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="google" type="462c0819:PsiDirectoryNode" />
-              <item name="protobuf" type="462c0819:PsiDirectoryNode" />
-              <item name="internal" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="PIL" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="tensorflow" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="tensorflow" type="462c0819:PsiDirectoryNode" />
-              <item name="contrib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="tensorflow" type="462c0819:PsiDirectoryNode" />
-              <item name="contrib" type="462c0819:PsiDirectoryNode" />
-              <item name="slim" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="tensorflow" type="462c0819:PsiDirectoryNode" />
-              <item name="contrib" type="462c0819:PsiDirectoryNode" />
-              <item name="slim" type="462c0819:PsiDirectoryNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="tensorflow" type="462c0819:PsiDirectoryNode" />
-              <item name="contrib" type="462c0819:PsiDirectoryNode" />
-              <item name="slim" type="462c0819:PsiDirectoryNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
-              <item name="slim" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="tensorflow" type="462c0819:PsiDirectoryNode" />
-              <item name="contrib" type="462c0819:PsiDirectoryNode" />
-              <item name="slim" type="462c0819:PsiDirectoryNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
-              <item name="slim" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="tensorflow" type="462c0819:PsiDirectoryNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN_try" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6 &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="python3" type="462c0819:PsiDirectoryNode" />
-              <item name="Lib" type="462c0819:PsiDirectoryNode" />
-              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
-              <item name="tensorflow" type="462c0819:PsiDirectoryNode" />
-              <item name="python" type="462c0819:PsiDirectoryNode" />
-              <item name="ops" type="462c0819:PsiDirectoryNode" />
+              <item name="nets" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SSD_for_Tensorflow" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -323,7 +212,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.mytest">
+  <component name="RunManager" selected="Python.trainSSDNet">
     <configuration name="OWN_try" type="PythonConfigurationType" factoryName="Python">
       <module name="OWN_try" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -362,25 +251,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="read_Tsinghua_Tecent_tfrecords" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="OWN_try" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords/read_Tsinghua_Tecent_tfrecords.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="test (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="OWN_try" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -400,7 +270,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="trainSSDNet" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="OWN_try" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -408,12 +278,31 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/trainSSDNet.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="voc_tfrecords" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="OWN_try" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/voc_Tfrecords" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/voc_Tfrecords/voc_tfrecords.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -436,19 +325,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.OWN_try" />
-      <item itemvalue="Python.read_Tsinghua_Tecent_tfrecords" />
-      <item itemvalue="Python.test" />
       <item itemvalue="Python.test (1)" />
       <item itemvalue="Python tests.py.test in mytest.py" />
       <item itemvalue="Python.mytest" />
+      <item itemvalue="Python.trainSSDNet" />
+      <item itemvalue="Python.voc_tfrecords" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.trainSSDNet" />
+        <item itemvalue="Python.voc_tfrecords" />
         <item itemvalue="Python.mytest" />
         <item itemvalue="Python tests.py.test in mytest.py" />
         <item itemvalue="Python.test (1)" />
-        <item itemvalue="Python.read_Tsinghua_Tecent_tfrecords" />
-        <item itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -482,10 +371,10 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="bottom" x="0" y="305" width="1600" height="249" id="Run" order="2" sideWeight="0.49956408" weight="0.33691275" />
+      <window_info anchor="bottom" x="0" y="305" width="1600" height="249" id="Run" order="2" sideWeight="0.49956408" visible="true" weight="0.05771812" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.16796875" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49921754" visible="true" weight="0.10218509" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49921754" visible="true" weight="0.18701799" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" weight="0.79241645" />
@@ -501,28 +390,28 @@
       <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" x="0" y="305" width="1600" height="249" id="Run" order="2" sideWeight="0.49956408" visible="true" weight="0.1704698" />
       <window_info anchor="right" id="Remote Host" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49921754" visible="true" weight="0.15295629" />
       <window_info id="Structure" order="1" sideWeight="0.5007825" side_tool="true" weight="0.118125" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="5" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" x="0" y="305" width="1600" height="249" id="Run" order="2" sideWeight="0.49956408" visible="true" weight="0.1704698" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.39463088" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.16796875" />
       <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.50043595" side_tool="true" weight="0.32079208" />
-      <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="SciView" order="5" weight="0.16066837" />
-      <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,6 +448,21 @@
           <line>39</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/voc_Tfrecords/voc_to_tfrecords.py</url>
+          <line>108</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/nets/vgg.py</url>
+          <line>90</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/trainSSDNet.py</url>
+          <line>163</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -567,61 +471,10 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="37" />
+      <option name="time" value="41" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/voc_Tfrecords/voc_common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/voc_Tfrecords/dataset_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/voc_Tfrecords/voc_tfrecords.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords/tsinghua_tecent_to_tfrecord.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1125">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords/tsinghua_tecent_tfrecords.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="87" selection-start-line="10" selection-start-column="87" selection-end-line="10" selection-end-column="87" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords/anno_func.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/voc_Tfrecords/voc_to_tfrecords.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2975">
@@ -670,9 +523,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="10" column="87" selection-start-line="10" selection-start-column="87" selection-end-line="10" selection-end-column="87" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -731,9 +581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="10" column="87" selection-start-line="10" selection-start-column="87" selection-end-line="10" selection-end-column="87" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -782,16 +629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/voc_Tfrecords/voc_tfrecords.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/python3/Lib/site-packages/google/protobuf/internal/python_message.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -813,17 +650,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ssd_preprocessing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="317" column="61" lean-forward="true" selection-start-line="317" selection-start-column="61" selection-end-line="317" selection-end-column="61" />
-          <folding>
-            <element signature="n#!!doc" />
-            <element signature="e#685#1186#1" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/ssd_preprocessing.py" />
     <entry file="file://D:/python3/Lib/site-packages/tensorflow/contrib/slim/python/slim/data/parallel_reader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1070">
@@ -845,13 +672,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/make_Record.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="136" column="48" selection-start-line="136" selection-start-column="48" selection-end-line="136" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/make_Record.py" />
     <entry file="file://D:/python3/Lib/site-packages/tensorflow/python/ops/image_ops_impl.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -863,19 +684,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="6" column="122" selection-start-line="6" selection-start-column="41" selection-end-line="6" selection-end-column="122" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/voc_Tfrecords/voc_to_tfrecords.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="95" column="19" selection-start-line="95" selection-start-column="14" selection-end-line="95" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -886,16 +694,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="103" selection-start-line="103" selection-end-line="103" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords/test.py" />
     <entry file="file://$PROJECT_DIR$/Tsinghua_Tecent_Tfrecords/tsinghua_tecent_to_tfrecord.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-200">
@@ -910,42 +709,149 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
           <caret line="66" column="24" lean-forward="true" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TFrecords读数据.ipynb">
-      <provider selected="true" editor-type-id="ipnb-editor">
-        <state>
-          <selected id="4" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/TFrecords读数据.ipynb" />
     <entry file="file://$USER_HOME$/Desktop/pytorch-0.1.2/pytorch-0.1.2/setup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ssd_net/ssd_net.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://D:/python3/Lib/site-packages/tensorflow/python/ops/control_flow_ops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
+        <state relative-caret-position="72475">
           <caret line="2933" selection-start-line="2933" selection-end-line="2933" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mytest.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/cifar10.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model_deploy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="479" selection-start-line="479" selection-end-line="479" />
+          <folding>
+            <element signature="n#!!doc" />
+            <element signature="e#685#3948#1" />
+            <element signature="e#5641#7264#1" />
+            <element signature="e#8061#8405#1" />
+            <element signature="e#9807#10451#1" />
+            <element signature="e#10846#11686#1" />
+            <element signature="e#12766#14108#1" />
+            <element signature="e#17101#17511#1" />
+            <element signature="e#18185#18460#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/pascalvoc_to_tfrecords.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="105" column="33" lean-forward="true" selection-start-line="105" selection-start-column="33" selection-end-line="105" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!doc" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voc_Tfrecords/voc_to_tfrecords.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="97" column="56" selection-start-line="97" selection-start-column="56" selection-end-line="97" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voc_Tfrecords/voc_tfrecords.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
-          <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SSD-Tensorflow/tf_convert_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="43" column="55" lean-forward="true" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
+          <folding>
+            <element signature="n#!!doc" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datasets/dataset_factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="54" column="47" selection-start-line="54" selection-start-column="47" selection-end-line="54" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nets/vgg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="242" selection-start-line="242" selection-end-line="243" selection-end-column="14" />
+          <folding>
+            <element signature="n#!!doc" />
+            <element signature="e#685#1417#1" />
+            <element signature="e#1620#1747#1" />
+            <element signature="e#2251#3021#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocessing/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocessing/preprocessing_factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="474">
+          <caret line="59" column="27" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
+          <folding>
+            <element signature="e#1151#1636#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tf_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1649">
+          <caret line="253" selection-start-line="253" selection-end-line="253" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trainSSDNet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="159" column="56" selection-start-line="159" selection-start-column="38" selection-end-line="159" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nets/nets_factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="50" column="42" selection-start-line="50" selection-start-column="31" selection-end-line="50" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nets/ssd_vgg_300.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="68" column="50" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
         </state>
       </provider>
     </entry>
